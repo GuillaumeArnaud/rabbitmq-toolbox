@@ -26,7 +26,7 @@ Without groovy in your path:
 You can find samples in directory ```./conf/```:
 
 ```json
-      {
+ {
       "virtualHost": "/",
       "delayKillAfterSendingSeconds": 4,
       "common": {
@@ -58,7 +58,21 @@ You can find samples in directory ```./conf/```:
           }
       ]
   
-  }
+ }
 ```
 
 All parameters in ```common``` element can be overloaded in each ```consumers``` and ```senders```.
+
+Minimal configuration (without default values):
+
+```json
+{
+  "common": {
+      "exchange": {
+          "name": "defaultEx"
+      }
+  },
+  "consumers": [ { "name": "worker1" } ],
+  "senders": [ { "name": "sender", "count": 20 } ]
+}
+```
