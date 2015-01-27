@@ -1,0 +1,33 @@
+{
+    "virtualHost": "/",
+    "delayKillAfterSendingSeconds": 4,
+    "common": {
+        "host": "localhost",
+        "port": 5672,
+        "exchange": {
+            "name": "defaultEx",
+            "type": "direct"
+        },
+        "queueName": "myqueue",
+        "routingKey": "worker.all"
+    },
+    "consumers": [
+        {
+            "name": "worker1"
+        },
+        {
+            "name": "worker2"
+        },
+        {
+            "name": "audit",
+            "queueName": "auditQueue1"
+        }
+    ],
+    "senders": [
+        {
+            "name": "sender",
+            "count": 20
+        }
+    ]
+
+}
