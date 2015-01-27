@@ -1,0 +1,36 @@
+{
+    "virtualHost": "/",
+    "delayKillAfterSendingSeconds": 4,
+    "common": {
+        "host": "localhost",
+        "port": 5672,
+        "exchange": {
+            "name": "fanoutEx",
+            "type": "fanout"
+        }
+    },
+    "consumers": [
+        {
+            "routingKey": "routingKey1",
+            "name": "consumer1",
+            "queueName": "queue1"
+        },
+        {
+            "routingKey": "routingKey2",
+            "name": "consumer2",
+            "queueName": "queue2"
+        },
+        {
+            "routingKey": "routingKey3",
+            "name": "consumer3",
+            "queueName": "queue3"
+        }
+    ],
+    "senders": [
+        {
+            "name": "sender",
+            "count": 10
+        }
+    ]
+
+}
