@@ -1,0 +1,54 @@
+{
+    "virtualHost": "/",
+    "delayKillAfterSendingSeconds": 4,
+    "common": {
+        "host": "localhost",
+        "port": 5672,
+        "exchange": {
+            "name": "topicExchange",
+            "type": "topic"
+        }
+    },
+    "consumers": [
+        {
+            "name": "paris consumer",
+            "routingKey": "paris.*"
+
+        },
+        {
+            "name": "newyork consumer",
+            "routingKey": "newyork.*"
+        },
+        {
+            "name": "euro consumer",
+            "routingKey": "*.euro"
+        },
+        {
+            "name": "dollar consumer",
+            "routingKey": "*.dollar"
+        }
+    ],
+    "senders": [
+        {
+            "name": "newyork sender",
+            "count": 2,
+            "routingKey": "newyork.dollar"
+        },
+        {
+            "name": "paris sender",
+            "count": 2,
+            "routingKey": "paris.euro"
+        },
+        {
+            "name": "berlin sender",
+            "count": 2,
+            "routingKey": "berlin.euro"
+        },
+        {
+            "name": "losangeles sender",
+            "count": 2,
+            "routingKey": "losangeles.dollar"
+        }
+    ]
+
+}
